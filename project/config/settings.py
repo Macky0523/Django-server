@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'corsheaders',
+    'accounts',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -141,5 +142,8 @@ EMAIL_PORT = '2525'
 DJOSER = {
     'SEND_ACTIVATION_EMAIL' : True,
     'SEND_CONFIRMATION_EMAIL' : True,
-    'ACTIVATION_URL' : 'activation/{uid}/{token}'
+    'ACTIVATION_URL' : 'activation/{uid}/{token}',
+    'SERIALIZERS' : {
+        'user_create': 'accounts.serializers.CustomUserCreateSerializer',
+    }
 }
