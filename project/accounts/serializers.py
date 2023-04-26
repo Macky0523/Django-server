@@ -15,7 +15,7 @@ class CustomUserCreateSerializer(UserCreateSerializer):
     last_name = serializers.CharField(max_length = 225, write_only=True)
     birthdate = serializers.DateField(write_only=True)
     gender = serializers.CharField(max_length = 6, write_only = True)
-
+    username = serializers.CharField(max_length = 225, write_only=True)
 
     class Meta:
         model = User
