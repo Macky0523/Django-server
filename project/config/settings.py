@@ -133,10 +133,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email ni dinhi brad
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '992f0fdbe5e894'
-EMAIL_HOST_PASSWORD = 'd1ac0c4e054cce'
+EMAIL_HOST_USER = 'd4d9e636c2124d'
+EMAIL_HOST_PASSWORD = '8d0cc56d406baa'
 EMAIL_PORT = '2525'
 
 DJOSER = {
@@ -148,3 +149,5 @@ DJOSER = {
         'user_create': 'accounts.serializers.CustomUserCreateSerializer',
     }
 }
+
+
