@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Request
+
+def my_view(request):
+    # Example usage:
+    requests = Request.objects.all()  # Retrieve all requests
+    # ...
