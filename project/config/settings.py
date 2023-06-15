@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'djoser',
     'corsheaders',
     'accounts',
+    'post.apps.PostConfig',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
