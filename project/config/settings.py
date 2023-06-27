@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'corsheaders',
+    'accounts',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -55,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -132,14 +135,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email ni dinhi brad
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+ALLOWED_HOSTS = ['*']
 
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '992f0fdbe5e894'
-EMAIL_HOST_PASSWORD = 'd1ac0c4e054cce'
+EMAIL_HOST_USER = 'd4d9e636c2124d'
+EMAIL_HOST_PASSWORD = '8d0cc56d406baa'
 EMAIL_PORT = '2525'
 
 DJOSER = {
     'SEND_ACTIVATION_EMAIL' : True,
     'SEND_CONFIRMATION_EMAIL' : True,
-    'ACTIVATION_URL' : 'activation/{uid}/{token}'
+    'ACTIVATION_URL' : 'activation/{uid}/{token}',
+    'LOGIN_FIELD' : 'username',
+    'PASSWORD_RESET_CONFIRM_URL' : 'reset-password/{uid}/{token}',
+    'SERIALIZERS' : {
+        'user_create': 'accounts.serializers.CustomUserCreateSerializer',
+        'current_user' : 'accounts.serializers.CustomUserSerializer',
+    }
 }
+
+
